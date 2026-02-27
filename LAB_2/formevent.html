@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+      <input type="text" id="name" placeholder="Type something..." /><br><br>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <h3 id="output">Event:none</h3>
+    <script>
+      var form = document.getElementById("myForm");
+      var input = document.getElementById("name");
+      var output = document.getElementById("output");
+
+      input.addEventListener("input", function () {
+        output.innerHTML = "Event: input";
+      });
+
+      input.addEventListener("change", function () {
+        output.innerHTML = "Event: change";
+      });
+
+      input.addEventListener("focus", function () {
+        output.innerHTML = "Event: focus";
+      });
+
+      input.addEventListener("blur", function () {
+        output.innerHTML = "Event: blur";
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        output.innerHTML = "Event: submit";
+      });
+
+      form.addEventListener("reset", function () {
+        output.innerHTML = "Event: reset";
+      });
+    </script>
+</body>
+</html>

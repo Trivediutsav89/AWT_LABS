@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model playing_with_neon {
+  id    Int    @id @default(autoincrement())
+  name  String
+  value Float? @db.Real
+}
+
+model tasks {
+  taskid          Int      @id @default(autoincrement())
+  tasktitle       String   @db.VarChar(100)
+  taskdescription String?
+  iscompleted     Boolean? @default(false)
+  userid          Int
+  users           users    @relation(fields: [userid], references: [userid], onDelete: Cascade, onUpdate: NoAction, map: "fk_users")
+}
+
+model users {
+  userid   Int     @id @default(autoincrement())
+  username String  @db.VarChar(50)
+  password String  @db.VarChar(50)
+  tasks    tasks[]
+}

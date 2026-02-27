@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="box">Click</div>
+
+    <h2 id="output">Event : none</h2>
+
+    <script>
+        var box = document.getElementById("box");
+        var output = document.getElementById("output");
+
+    box.addEventListener("click",function()
+    {
+        output.innerHTML = "Event : click"
+    })
+
+    box.addEventListener("dblclick",function()
+    {
+        output.innerHTML = "Event : double click"
+    })
+
+    box.addEventListener("mousedown",function()
+    {
+        output.innerHTML = "Event : mouse down"
+    })
+     
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Simple CRUD on Array</h2>
+
+<input type="text" id="itemInput" placeholder="Enter item">
+<button onclick="addItem()">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+  var arr = [];
+  var editIndex = -1;
+
+  function addItem() {
+    var value = document.getElementById("itemInput").value;
+
+    if (value === "") {
+      alert("Enter something");
+      return;
+    }
+
+    if (editIndex === -1) {
+      arr.push(value);
+    } else {
+      arr[editIndex] = value;
+      editIndex = -1;
+    }
+
+    document.getElementById("itemInput").value = "";
+    display();
+  }
+
+  function display() {
+    var list = document.getElementById("list");
+    list.innerHTML = "";
+
+    for (var i = 0; i < arr.length; i++) {
+      list.innerHTML +=
+        "<li>" +
+        arr[i] +
+        " <button onclick='editItem(" + i + ")'>Edit</button>" +
+        " <button onclick='deleteItem(" + i + ")'>Delete</button>" +
+        "</li>";
+    }
+  }
+
+  function editItem(i) {
+    document.getElementById("itemInput").value = arr[i];
+    editIndex = i;
+  }
+
+  function deleteItem(i) {
+    arr.splice(i, 1);
+    display();
+  }
+</script>
+
+</body>
+</html>

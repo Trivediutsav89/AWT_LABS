@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h2 id="output">none</h2>
+
+    <script>
+        var output=document.getElementById("output");
+
+        document.addEventListener("keyup",function()
+    {
+        output.innerHTML = "Keyup"
+    })
+
+     document.addEventListener("keydown",function()
+    {
+        output.innerHTML = "Keydown"
+    })
+
+     document.addEventListener("keypress",function()
+    {
+        output.innerHTML = "Keypress"
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calc</title>
+</head>
+<body>
+    <script>
+        let x=parseInt(prompt("Enter the first number"))
+        let y=parseInt(prompt("Enter the second number"))
+        let ans;
+
+        let oper = prompt("Enter 1 for + , 2 for - , 3 for * , 4 for / ")
+
+        switch(oper)
+        {
+            case "1":
+            ans = x + y;
+            break;
+
+            case "2":
+                ans = x - y;
+            break;
+            
+            case "3":
+                ans = x * y;
+                break;
+            
+            case "4":
+                ans = x / y
+                break;
+            
+            default:
+             let text="Enter the valid number"
+             break;
+        }
+
+        console.log(ans)
+    </script>
+</body>
+</html>
